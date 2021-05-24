@@ -44,10 +44,9 @@ def open_browser(k):
         opts.add_argument(f"user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.{random_angka_satu}.{random_angka_dua} Safari/537.36")
         browser = webdriver.Chrome(options=opts, desired_capabilities=dc, executable_path=path_browser)
         browser.get('https://bit.ly/form_amalyaumi_bkpakizzul')
-    
   
-         
-
+ 
+        sleep(10)
         nama = wait(browser,15).until(EC.presence_of_element_located((By.XPATH, '/html/body/div/div[2]/form/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input')))
         
         nama.send_keys(nama_user) 
@@ -98,10 +97,11 @@ def open_browser(k):
             browser.quit()
         except:
             print(f"[*] [  {tanggal_pelaksanaan} ] Automation Failed!")
-            browser.quit()
+            
     except:
         print(f"[*] [ {tanggal_pelaksanaan} ] Automation Failed!")
-        browser.quit()
+    
+    
 if __name__ == '__main__':
     global list_accountsplit
     print('[*] AAUTOMATION FILL GOOGLE FORM')
