@@ -34,7 +34,8 @@ kelas_ = "X mipa 4" #index nya adalah 6
 kelas = 6
 no_absen = 22
 
-def open_browser():
+def open_browser(k):
+    tanggal_pelaksanaan = k
     try:
         random_angka = random.randint(1,2)
         random_angka_satu = random.randint(100,999)
@@ -43,8 +44,8 @@ def open_browser():
         browser = webdriver.Chrome(options=opts, desired_capabilities=dc, executable_path=path_browser)
         browser.get('https://bit.ly/form_amalyaumi_bkpakizzul')
     
-        print(f"[*] AUTOMATION FILL GOOGLE FORM")
-        tanggal_pelaksanaan = int(input("[*] Input Tgl Pelaksaan, (format: TANGGALBULANTAHUN) contoh: 01042021: "))
+  
+         
 
         nama = wait(browser,15).until(EC.presence_of_element_located((By.XPATH, '/html/body/div/div[2]/form/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input')))
         
@@ -93,10 +94,25 @@ def open_browser():
             print(f"[*] {get_text}")
             with open('success.txt','a') as f:
                 f.write('{0} | {1}\n'.format(nama_user,tanggal_pelaksanaan))
-            
+            browser.quit()
         except:
-            print(f"[*] Automation Failed!")
+            print(f"[*] [  {tanggal_pelaksanaan} ] Automation Failed!")
+            browser.quit()
     except:
-        print(f"[*] Automation Failed!")
-
-open_browser()
+        print(f"[*] [ {tanggal_pelaksanaan} ] Automation Failed!")
+        browser.quit()
+if __name__ == '__main__':
+    global list_accountsplit
+    print('[*] AAUTOMATION FILL GOOGLE FORM')
+    print('[*] Author: RJD')
+  
+    file_list_akun = "tanggal.txt"
+    myfile_akun = open(f"{cwd}/{file_list_akun}","r")
+    akun = myfile_akun.read()
+    list_accountsplit = akun.split()
+    k = list_accountsplit
+    
+    for i in k:  
+        open_browser(i)
+    print('[*] AUTOMATION FINISH')    
+        
