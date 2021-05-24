@@ -35,7 +35,8 @@ kelas = 6
 no_absen = 22
 
 def open_browser(k):
-    tanggal_pelaksanaan = k
+    get_tanggal = k
+    tanggal_pelaksanaan = f"{get_tanggal}2021"
     try:
         random_angka = random.randint(1,2)
         random_angka_satu = random.randint(100,999)
