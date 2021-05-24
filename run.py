@@ -84,7 +84,7 @@ def open_browser(k):
         #Tilawah
         wait(browser,5).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div[2]/form/div[2]/div/div[2]/div[7]/div/div/div[2]/div/div[1]/div[2]"))).click()
         sleep(0.5)
-        wait(browser,5).until(EC.element_to_be_clickable((By.XPATH, f"/html/body/div/div[2]/form/div[2]/div/div[2]/div[7]/div/div/div[2]/div/div[2]/div[{random.randint(2,5)}]/span"))).click()
+        wait(browser,5).until(EC.element_to_be_clickable((By.XPATH, f"/html/body/div/div[2]/form/div[2]/div/div[2]/div[7]/div/div/div[2]/div/div[2]/div[2]/span"))).click()
         sleep(0.5)
         wait(browser,5).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div[2]/form/div[2]/div/div[3]/div[1]/div/div/span/span"))).click()
 
